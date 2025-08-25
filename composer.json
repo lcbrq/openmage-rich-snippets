@@ -1,0 +1,16 @@
+{
+    "name": "lcbrq/openmage-rich-snippets",
+    "version": "alpha",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "type": "magento-module",
+    "require": {
+        "php": "^8.0"
+    },
+    "description": "Add basic rich snippets support to OpenMage",
+    "extra": {
+        "magento-root-dir": "source/"
+    }
+}

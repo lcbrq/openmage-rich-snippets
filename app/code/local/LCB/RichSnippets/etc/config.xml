@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <LCB_RichSnippets>
+            <version>0.1.0</version>
+        </LCB_RichSnippets>
+    </modules>
+    <global>
+        <blocks>
+            <lcb_richsnippets>
+                <class>LCB_RichSnippets_Block</class>
+            </lcb_richsnippets>
+        </blocks>
+        <helpers>
+            <lcb_richsnippets>
+                <class>LCB_RichSnippets_Helper</class>
+            </lcb_richsnippets>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <lcb_richsnippets>
+                    <file>lcb_richsnippets.xml</file>
+                </lcb_richsnippets>
+            </updates>
+        </layout>
+    </frontend>
+</config>

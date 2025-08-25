@@ -1,0 +1,39 @@
+<?php
+/**
+ * @class LCB_RichSnippets_Block_Wordpress_Post $this
+ */
+$post = $this->getPost();
+if (!$post) {
+    return;
+}
+?>
+
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "<?= $post->getUrl() ?>",
+    "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "<?= $post->getUrl() ?>"
+    },
+    "headline": "<?= $post->getPostTitle() ?>",
+    "description": "<?= trim(strip_tags($post->getPostExcerpt())) ?>",
+    <?php if ($featuredImage = $post->getFeaturedImage()): ?>
+        "image": [
+        "<?= $featuredImage->getAvailableImage() ?>"
+        ],
+    <?php endif ?>
+    "datePublished": "<?= $this->formatDate($post->getData('post_date')) ?>",
+    "dateModified": "<?= $this->formatDate($post->getPostModified()) ?>",
+    "author": {
+    "@type": "Person",
+    "name": "<?= $post->getAuthor()?->getDisplayName() ?? '' ?>"
+    },
+    "url": "<?= $post->getUrl() ?>",
+    "inLanguage": "<?= $this->getLanguage() ?>",
+    "isAccessibleForFree": true,
+    "commentCount": <?= (int) $post->getCommentCount() ?>,
+    "wordCount": <?= (int) str_word_count(strip_tags($post->getPostContent())) ?>
+    }
+</script>

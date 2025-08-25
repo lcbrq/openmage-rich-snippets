@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+
+    <default>
+        <reference name="before_body_end">
+            <block type="lcb_richsnippets/widget" name="lcb.richsnippets.default" template="lcb/richsnippets/default.phtml"/>
+            <block type="lcb_richsnippets/catalog_breadcrumbs" name="lcb.richsnippets.breadcrumbs" template="lcb/richsnippets/catalog/breadcrumbs.phtml"/>
+        </reference>
+    </default>
+    
+    <wordpress_post_view>
+        <reference name="before_body_end">
+            <block type="lcb_richsnippets/wordpress_post" name="lcb.richsnippets.wordpress" template="lcb/richsnippets/wordpress/post.phtml"/>
+        </reference>
+    </wordpress_post_view>
+
+</layout>

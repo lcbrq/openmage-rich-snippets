@@ -1,0 +1,4 @@
+app/code/local/LCB/RichSnippets
+app/design/frontend/base/default/layout/lcb_richsnippets.xml
+app/design/frontend/base/default/template/lcb/richsnippets
+app/etc/modules/LCB_RichSnippets.xml

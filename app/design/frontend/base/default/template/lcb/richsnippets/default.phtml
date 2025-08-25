@@ -1,0 +1,23 @@
+<?php
+/**
+ * @class LCB_RichSnippets_Block_Widget $this
+ */
+if (!Mage::getStoreConfig('lcb_richsnippets/organization/enabled')) {
+    return '';
+}
+?>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/locality') ?>",
+    "streetAddress": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/street') ?>",
+    "postalCode": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/postcode') ?>",
+    "addressRegion": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/region') ?>"
+  },
+  "name": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/name') ?>",
+  "telephone": "<?php echo Mage::getStoreConfig('lcb_richsnippets/organization/telephone') ?>"
+}
+</script>
