@@ -24,4 +24,20 @@ class LCB_RichSnippets_Block_Widget extends Mage_Core_Block_Template
 
         return date('c', strtotime($date));
     }
+
+    /**
+     * Escape string for JSON
+     *
+     * @param string $string
+     * @return string
+     */
+    public function filter($string)
+    {
+        $string = trim(strip_tags((string)$string));
+        $string = html_entity_decode($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $string = json_encode((string)$string, JSON_UNESCAPED_UNICODE);
+
+        return substr($string, 1, -1);
+    }
+
 }

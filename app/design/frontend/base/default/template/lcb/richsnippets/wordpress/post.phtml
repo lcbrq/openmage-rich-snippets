@@ -17,8 +17,8 @@ if (!$post) {
     "@type": "WebPage",
     "@id": "<?= $post->getUrl() ?>"
     },
-    "headline": "<?= $post->getPostTitle() ?>",
-    "description": "<?= trim(strip_tags($post->getPostExcerpt())) ?>",
+    "headline": "<?= $this->filter($post->getPostTitle()) ?>",
+    "description": "<?= $this->filter($post->getPostExcerpt(80)) ?>",
     <?php if ($featuredImage = $post->getFeaturedImage()): ?>
         "image": [
         "<?= $featuredImage->getAvailableImage() ?>"
