@@ -1,0 +1,36 @@
+<?php
+/**
+ * @class LCB_Ekomi_Block_Reviews $this
+ */
+$reviews = $this->getReviews();
+?>
+<script type="application/ld+json">
+<?= json_encode([
+    "@context" => "https://schema.org",
+    "@type" => "Organization",
+    "name" => Mage::app()->getStore()->getName(),
+    "url" => Mage::getBaseUrl(),
+    "aggregateRating" => [
+        "@type" => "AggregateRating",
+        "ratingValue" => round($this->getAverageRating(), 1),
+        "bestRating" => 5,
+        "ratingCount" => count($reviews)
+    ],
+    "review" => array_map(function($review) {
+        return [
+            "@type" => "Review",
+            "datePublished" => date('Y-m-d', $review->getSubmitted()),
+            "reviewBody" => $review->getReview(),
+            "reviewRating" => [
+                "@type" => "Rating",
+                "ratingValue" => round($review->getRating(), 1),
+                "bestRating" => 5
+            ],
+            "author" => [
+                "@type" => "Person",
+                "name"  => "Anonymous"
+            ],
+        ];
+    }, array_slice($reviews->getItems(), 0, 5))
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
+</script>
