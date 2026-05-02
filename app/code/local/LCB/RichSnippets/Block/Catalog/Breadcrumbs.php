@@ -11,7 +11,7 @@ class LCB_RichSnippets_Block_Catalog_Breadcrumbs extends LCB_RichSnippets_Block_
     public function getCrumbs()
     {
         if ($breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs')) {
-            return isset($breadcrumbsBlock->_viewVars) ? $breadcrumbsBlock->_viewVars['crumbs'] : [];
+            return isset($breadcrumbsBlock->_viewVars) && isset($breadcrumbsBlock->_viewVars['crumbs']) ? $breadcrumbsBlock->_viewVars['crumbs'] : [];
         }
 
         return [];
